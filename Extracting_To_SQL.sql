@@ -79,7 +79,7 @@ DELETE from TempTable where RowNumber > 1
 Go
 
 --Updating the extractted data to the final main database "ix_spc_product"
-MERGE dbo.[ix_spc_product] As ta
+MERGE dbo.[final_product] As ta
 USING Temp_Product_Data As s
 ON (ta.[ID] = s.[ID])
 WHEN MATCHED THEN 
@@ -195,7 +195,7 @@ DELETE from TempTable where RowNumber > 1
 Go
 
 --Updating the extracted data to the final main database "ix_str_store"
-MERGE dbo.[ix_str_store] As t
+MERGE dbo.[final_store] As t
 USING dbo.[Temp_Store_Data] As s
 ON (t.[StoreNumber] = s.[STORE ID]) 
 WHEN MATCHED THEN 
